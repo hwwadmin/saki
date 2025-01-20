@@ -5,7 +5,7 @@
     <artifactId>saki</artifactId>
     <version>1.0</version>
     <modules>
-
+        <module>saki-common</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -18,18 +18,21 @@
     <properties>
         <!-- 项目版本定义 -->
         <saki.version>${version}</saki.version>
+
         <!-- 基本定义 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
         <skipTests>true</skipTests>
         <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+
         <!-- cloud版本 -->
         <!-- 兼容版本查看 https://start.spring.io/actuator/info -->
         <spring.cloud.version>2021.0.4</spring.cloud.version>
         <!-- 兼容版本查看 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
         <!-- aliCloud的版本要和cloud的兼容 -->
         <spring.ali.cloud.version>2021.0.4.0</spring.ali.cloud.version>
+
         <!--第三方包引入版本定义-->
         <dubbo.version>3.2.10</dubbo.version>
         <druid.version>1.1.10</druid.version>
@@ -44,6 +47,9 @@
         <tukaani-xz.version>1.9</tukaani-xz.version>
         <rocketmq.version>4.9.4</rocketmq.version>
         <kafka.build.version>2.2.6.RELEASE</kafka.build.version>
+        <oshi.version>6.6.3</oshi.version>
+        <zxing.version>3.5.3</zxing.version>
+
         <!-- 插件版本-->
         <plugin.maven-compiler-plugin>3.10.1</plugin.maven-compiler-plugin>
         <plugin.maven-surefire-plugin>3.0.0-M7</plugin.maven-surefire-plugin>
@@ -55,6 +61,7 @@
         <plugin.maven-deploy-plugin>3.0.0</plugin.maven-deploy-plugin>
         <plugin.versions-maven-plugin>2.7</plugin.versions-maven-plugin>
         <plugin.jasypt-maven-plugin>3.0.0</plugin.jasypt-maven-plugin>
+
     </properties>
 
     <dependencyManagement>
@@ -198,6 +205,19 @@
                 <artifactId>spring-kafka</artifactId>
                 <version>${kafka.build.version}</version>
             </dependency>
+            <!-- 获取系统信息 -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
+            <!-- zxing -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
