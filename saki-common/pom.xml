@@ -18,26 +18,31 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
         <!-- yaml -->
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
         </dependency>
+
         <!-- jsr305 -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
         </dependency>
+
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+
         <!-- lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
         <!-- jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -51,31 +56,37 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jdk8</artifactId>
         </dependency>
+
         <!-- guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
         <!-- collections4 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
         </dependency>
+
         <!-- pool2 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
+
         <!-- caffeine -->
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
         </dependency>
+
         <!-- cglib -->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
         </dependency>
+
         <!-- commons-compress -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -85,6 +96,7 @@
             <groupId>org.tukaani</groupId>
             <artifactId>xz</artifactId>
         </dependency>
+
         <!-- 获取系统信息 -->
         <dependency>
             <groupId>com.github.oshi</groupId>
