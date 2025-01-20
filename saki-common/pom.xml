@@ -25,12 +25,6 @@
             <artifactId>snakeyaml</artifactId>
         </dependency>
 
-        <!-- jsr305 -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-        </dependency>
-
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>

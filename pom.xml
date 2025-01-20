@@ -13,7 +13,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.4</version>
+        <version>2.7.18</version>
+        <relativePath/>
     </parent>
 
     <properties>
@@ -35,9 +36,9 @@
         <spring.ali.cloud.version>2021.0.4.0</spring.ali.cloud.version>
 
         <!--第三方包引入版本定义-->
+        <jackson.version>2.15.4</jackson.version>
         <dubbo.version>3.2.10</dubbo.version>
         <druid.version>1.1.10</druid.version>
-        <jsr305.version>3.0.2</jsr305.version>
         <hutool.version>5.8.24</hutool.version>
         <commons-collections4.version>4.3</commons-collections4.version>
         <guava.version>32.0.0-android</guava.version>
@@ -50,20 +51,18 @@
         <kafka.build.version>2.2.6.RELEASE</kafka.build.version>
         <oshi.version>6.6.3</oshi.version>
         <zxing.version>3.5.3</zxing.version>
-        <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <pagehelper.boot.version>2.1.0</pagehelper.boot.version>
+        <snakeyaml.version>1.30</snakeyaml.version>
+        <commons-lang3.version>3.13.0</commons-lang3.version>
+        <commons-pool2.version>2.12.0</commons-pool2.version>
+        <junit.version>4.13.2</junit.version>
+        <caffeine.version>3.1.8</caffeine.version>
+        <mysql.version>8.0.33</mysql.version>
 
         <!-- 插件版本-->
         <plugin.maven-compiler-plugin>3.10.1</plugin.maven-compiler-plugin>
-        <plugin.maven-surefire-plugin>3.0.0-M7</plugin.maven-surefire-plugin>
         <plugin.maven-clean-plugin>3.2.0</plugin.maven-clean-plugin>
-        <plugin.maven-source-plugin>3.2.1</plugin.maven-source-plugin>
-        <plugin.maven-resources-plugin>3.3.0</plugin.maven-resources-plugin>
-        <plugin.maven-jar-plugin>3.2.2</plugin.maven-jar-plugin>
-        <plugin.maven-install-plugin>3.0.1</plugin.maven-install-plugin>
-        <plugin.maven-deploy-plugin>3.0.0</plugin.maven-deploy-plugin>
-        <plugin.versions-maven-plugin>2.7</plugin.versions-maven-plugin>
-        <plugin.jasypt-maven-plugin>3.0.0</plugin.jasypt-maven-plugin>
 
     </properties>
 
@@ -85,6 +84,13 @@
                 <version>${spring.ali.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
 
             <!-- dubbo -->
@@ -122,13 +128,6 @@
                 <version>${pagehelper.boot.version}</version>
             </dependency>
 
-            <!-- jsr305 -->
-            <dependency>
-                <groupId>com.google.code.findbugs</groupId>
-                <artifactId>jsr305</artifactId>
-                <version>${jsr305.version}</version>
-            </dependency>
-
             <!-- hutool -->
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -161,12 +160,12 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson-bom.version}</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>${jackson-bom.version}</version>
+                <version>${jackson.version}</version>
             </dependency>
 
             <!-- guava -->
@@ -282,71 +281,26 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${plugin.maven-surefire-plugin}</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>${plugin.maven-clean-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${plugin.maven-source-plugin}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${plugin.maven-resources-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${plugin.maven-jar-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>${plugin.maven-install-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${plugin.maven-deploy-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${plugin.versions-maven-plugin}</version>
-            </plugin>
-            <plugin>
-                <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>jasypt-maven-plugin</artifactId>
-                <version>${plugin.jasypt-maven-plugin}</version>
             </plugin>
         </plugins>
     </build>
 
     <repositories>
         <repository>
-            <id>public</id>
-            <name>aliyun nexus</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>163</id>
+            <url>http://mirrors.163.com/maven/repository/maven-public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
